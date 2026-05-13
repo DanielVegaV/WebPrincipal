@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELKA | Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --verde-oscuro: #1f2a1d;
+      --verde-musgo: #556b2f;
+      --verde-claro: #7d9447;
+      --dorado: #d6c28b;
+      --crema: #fffaf0;
+      --fondo: #f3f1e8;
+    }
+
+    body {
+      background: linear-gradient(180deg, #f3f1e8, #ece7d3);
+      color: #26311f;
+      overflow-x: hidden;
+    }
+
+    .particulas span {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: rgba(214, 194, 139, 0.25);
+      border-radius: 50%;
+      animation: flotar 10s linear infinite;
+    }
+
+    .particulas span:nth-child(1){left:10%;animation-delay:0s;top:80%;}
+    .particulas span:nth-child(2){left:20%;animation-delay:2s;top:70%;}
+    .particulas span:nth-child(3){left:30%;animation-delay:4s;top:90%;}
+    .particulas span:nth-child(4){left:45%;animation-delay:1s;top:75%;}
+    .particulas span:nth-child(5){left:60%;animation-delay:3s;top:85%;}
+    .particulas span:nth-child(6){left:70%;animation-delay:5s;top:78%;}
+    .particulas span:nth-child(7){left:80%;animation-delay:1s;top:88%;}
+    .particulas span:nth-child(8){left:90%;animation-delay:4s;top:70%;}
+    .particulas span:nth-child(9){left:50%;animation-delay:6s;top:95%;}
+    .particulas span:nth-child(10){left:15%;animation-delay:7s;top:85%;}
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0px) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-900px) scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(31,42,29,0.82), rgba(31,42,29,0.88)),
+        url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      position: relative;
+      color: white;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      background: rgba(31,42,29,0.72);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre el icono y el logo */
+  }
+
+  .logo-icon {
+    width: 40px; /* Ajusta el tamaño del icono */
+    height: auto;
+  }
+
+
+  .logo-img {
+    width: 120px; /* Ajusta el tamaño del logo */
+    height: auto;
+    border-radius: 0; /* Elimina el borde circular */
+    box-shadow: none; /* Elimina la sombra alrededor de la imagen */
+  }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 40px;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      background: linear-gradient(135deg, var(--verde-claro), var(--dorado));
+      color: var(--verde-oscuro);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 0 8%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 950px;
+      animation: aparecerHero 1.2s ease;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 10vw, 120px);
+      font-weight: 900;
+      letter-spacing: 8px;
+      margin-bottom: 12px;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      color: #f0dfaa;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px;
+      border-radius: 25px;
+      backdrop-filter: blur(8px);
+      font-size: 18px;
+      margin-bottom: 35px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+    }
+
+    .btn-principal {
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--dorado), #f3e3b7);
+      color: var(--verde-oscuro);
+      padding: 16px 34px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 17px;
+      transition: 0.35s;
+      display: inline-block;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
+
+    .btn-principal:hover {
+      transform: translateY(-5px) scale(1.06);
+    }
+
+    section {
+      padding: 90px 8%;
+      position: relative;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(214,194,139,0.08);
+      border-radius: 50%;
+      top: 10%;
+      right: -60px;
+      z-index: 0;
+    }
+
+    .contenedor {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 45px;
+      color: var(--verde-oscuro);
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--verde-musgo), var(--dorado));
+      display: block;
+      margin: 14px auto 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    h3 {
+      position: relative;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 120px;
+      height: 3px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--verde-musgo), transparent);
+    }
+
+    .integrante h3::after,
+    .hero h1::after,
+    .hero h2::after {
+      display: none;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 28px;
+    }
+
+    .card, .integrante, .resaltado {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 26px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .card {
+      padding: 30px;
+      transition: 0.4s;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(85,107,47,0.08), rgba(214,194,139,0.12));
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) rotate(-1deg);
+    }
+
+    .card h3 {
+      color: var(--verde-musgo);
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .resaltado {
+      padding: 35px;
+      border-left: 8px solid var(--verde-musgo);
+    }
+
+    .bloque-visual {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 30px;
+      align-items: center;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      padding: 38px;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.13);
+      border: 1px solid rgba(255,255,255,0.45);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bloque-visual::after {
+      content: '';
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(214,194,139,0.14);
+      right: -80px;
+      bottom: -90px;
+    }
+
+    .bloque-numero {
+      width: 120px;
+      height: 120px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--verde-musgo), var(--verde-claro));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: 900;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .bloque-contenido {
+      z-index: 2;
+    }
+
+    .bloque-contenido h3 {
+      font-size: 32px;
+      color: var(--verde-oscuro);
+      margin: 12px 0;
+    }
+
+    .visual-card {
+      text-align: center;
+      min-height: 260px;
+    }
+
+    .card-icono {
+      width: 70px;
+      height: 70px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--verde-musgo), var(--dorado));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 34px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.16);
+    }
+
+    .hero-logo {
+      width: 800px; /* Aumenta el tamaño de la imagen */
+      height: auto; /* Mantiene las proporciones de la imagen */
+      object-fit: contain; /* Asegura que la imagen no se distorsione */
+      margin-bottom: 60px; /* Añade más espacio debajo de la imagen */
+    }
+
+    .idea-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .idea-destacada {
+      background: linear-gradient(135deg, #26311f, #556b2f);
+      color: white;
+      border-radius: 32px;
+      padding: 38px;
+      text-align: center;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+    }
+
+    .idea-logo {
+      width: 250px; /* Agranda la imagen */
+      height: auto; /* Mantiene la proporción de la imagen */
+      object-fit: contain; /* Asegura que la imagen no se distorsione */
+      border-radius: 0; /* Elimina cualquier borde redondeado */
+      box-shadow: none; /* Elimina el sombreado */
+    }
+
+    .idea-destacada h3 {
+      font-size: 38px;
+      color: var(--dorado);
+      margin-bottom: 10px;
+    }
+
+    .idea-info {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .propuesta-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .propuesta-central {
+      background: linear-gradient(135deg, #26311f, #556b2f);
+      color: white;
+      padding: 42px;
+      border-radius: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+    }
+
+    .propuesta-central h3 {
+      font-size: 48px;
+      color: var(--dorado);
+      margin: 12px 0;
+    }
+
+    .propuesta-puntos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .punto-valor {
+      background: rgba(255,255,255,0.76);
+      border-radius: 24px;
+      padding: 24px;
+      font-weight: bold;
+      color: var(--verde-oscuro);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+      border: 2px solid rgba(85,107,47,0.35);
+      outline: 2px solid rgba(214,194,139,0.35);
+      outline-offset: -8px;
+      position: relative;
+      transition: 0.35s;
+    }
+
+    .punto-valor::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde-musgo), var(--dorado));
+      color: white;
+      font-weight: bold;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+    }
+
+    .punto-valor:hover {
+      transform: translateY(-7px);
+      border-color: var(--verde-musgo);
+      outline-color: var(--dorado);
+      box-shadow: 0 18px 35px rgba(47,62,43,0.18);
+    }
+
+    .diferenciacion {
+      margin-top: 28px;
+      background: rgba(255,255,255,0.74);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      border-top: 6px solid var(--dorado);
+    }
+
+    .diferenciacion h3 {
+      color: var(--verde-musgo);
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .ingresos-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+    }
+
+    .ingreso-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 36px;
+      border: 1px solid rgba(214,194,139,0.25);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.16);
+    }
+
+    .ingreso-card.grande {
+      background:
+        linear-gradient(rgba(31,42,29,0.75), rgba(31,42,29,0.82)),
+        url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ingreso-card h3 {
+      color: var(--dorado);
+      font-size: 28px;
+      margin: 12px 0;
+    }
+
+    @media (max-width: 900px) {
+      .bloque-visual,
+      .idea-layout,
+      .propuesta-layout,
+      .ingresos-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .propuesta-puntos {
+        grid-template-columns: 1fr;
+      }
+
+      .bloque-numero {
+        width: 95px;
+        height: 95px;
+        font-size: 32px;
+      }
+    }
+
+    .oportunidad-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .oportunidad-principal {
+      background:
+        linear-gradient(rgba(31,42,29,0.82), rgba(31,42,29,0.88)),
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      border-radius: 30px;
+      padding: 45px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oportunidad-principal::after {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(214,194,139,0.18);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+    }
+
+    .etiqueta {
+      background: var(--dorado);
+      color: var(--verde-oscuro);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      width: fit-content;
+      margin-bottom: 18px;
+      z-index: 2;
+    }
+
+    .oportunidad-principal h3 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #f3e3b7;
+      z-index: 2;
+    }
+
+    .oportunidad-principal p {
+      z-index: 2;
+      font-size: 17px;
+    }
+
+    .oportunidad-lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.76);
+      backdrop-filter: blur(12px);
+      border-radius: 26px;
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      border: 1px solid rgba(255,255,255,0.45);
+      transition: 0.35s;
+      flex: 1;
+    }
+
+    .mini-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 18px 38px rgba(47,62,43,0.2);
+    }
+
+    .icono {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde-musgo), var(--verde-claro));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .mini-card h4 {
+      color: var(--verde-musgo);
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .oportunidad-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .modelo {
+      background: linear-gradient(135deg, #26311f, #556b2f);
+      color: white;
+    }
+
+    .modelo h2 {
+      color: var(--dorado);
+    }
+
+    .modelo .card {
+      background: rgba(255,255,255,0.08);
+      color: white;
+    }
+
+    .modelo .card h3 {
+      color: var(--dorado);
+    }
+
+    .equipo {
+      text-align: center;
+    }
+
+    .carrusel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .carrusel-contenedor {
+      width: 100%;
+      max-width: 1050px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+
+    .integrante {
+      display: none;
+      padding: 30px;
+      transition: 0.4s;
+      animation: fade 0.6s ease;
+    }
+
+    .integrante:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .integrante.activo {
+      display: block;
+    }
+
+    .foto {
+      width: 170px;
+      height: 170px;
+      margin: auto;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--verde-musgo);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      margin-bottom: 18px;
+    }
+
+    .foto-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .integrante h3 {
+      margin-bottom: 8px;
+      color: var(--verde-oscuro);
+    }
+
+    .integrante p {
+      color: var(--verde-musgo);
+      font-weight: bold;
+    }
+
+    .carrusel-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, var(--verde-musgo), var(--verde-claro));
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: 0.35s;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+    }
+
+    .carrusel-btn:hover {
+      transform: scale(1.12) rotate(8deg);
+      background: linear-gradient(135deg, var(--dorado), #f3e3b7);
+      color: var(--verde-oscuro);
+    }
+
+    .indicadores {
+      margin-top: 25px;
+    }
+
+    .punto {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      background: #c8b67a;
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .punto.activo {
+      transform: scale(1.4);
+      background: var(--verde-musgo);
+    }
+
+    footer {
+      background: linear-gradient(135deg, #1f2a1d, #2f3e2b);
+      color: white;
+      text-align: center;
+      padding: 45px 8%;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--verde-musgo), var(--dorado), var(--verde-musgo));
+    }
+
+    @keyframes aparecerHero {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .carrusel-contenedor {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 25px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h1 {
+        letter-spacing: 3px;
+      }
+
+      section h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="inicio">
+    <div class="particulas">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <nav>
+      <div class="logo">
+        <img src="icono.jpeg" alt="Icono" class="logo-icon"> <!-- Imagen icono a la izquierda -->
+        <img src="nombrelogo.jpeg" alt="Logo VELKA" class="logo-img"> <!-- Imagen del logo -->
+      </div>
+      <div class="nav-links">
+        <a href="#reto">Reto</a>
+        <a href="#usuarios">Usuarios</a>
+        <a href="#idea">Idea</a>
+        <a href="#propuesta">Propuesta</a>
+        <a href="#ingresos">Ingresos</a>
+        <a href="#social">Responsabilidad</a>
+        <a href="#equipo">Equipo</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <img src="nombrelogo.jpeg" alt="Logo VELKA" class="hero-logo">
+        <h2>Empresa tecnológica para la gestión ganadera inteligente</h2>
+        <p>
+          VELKA es una empresa tecnológica agropecuaria que desarrolla soluciones digitales para modernizar la gestión ganadera. Su producto principal, AgroTag, es una aplicación móvil integrada con aretes electrónicos con chip y código QR, diseñada para mejorar el control, la trazabilidad y la administración del ganado en tiempo real.
+        </p>
+        <a href="#propuesta" class="btn-principal">Conoce la propuesta</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="reto" class="seccion-visual">
+    <div class="contenedor">
+      <h2>Escenario o reto empresarial</h2>
+
+      <div class="bloque-visual bloque-reto">
+        <div class="bloque-numero">01</div>
+        <div class="bloque-contenido">
+          <span class="etiqueta">Reto principal</span>
+          <h3>Control ganadero manual y poco eficiente</h3>
+          <p>
+            El reto empresarial surge por las dificultades que enfrentan los productores ganaderos al llevar controles manuales mediante libretas, conteos visuales y registros poco precisos. Esto genera pérdida de información, errores humanos y poca eficiencia administrativa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="usuarios" class="seccion-visual">
+    <div class="contenedor">
+      <h2>Usuarios afectados por el reto</h2>
+
+      <div class="cards visual-cards">
+        <div class="card visual-card">
+          <div class="card-icono">🐄</div>
+          <h3>Productores ganaderos</h3>
+          <p>Productores ganaderos que necesitan una solución moderna para controlar vacunas, enfermedades, reproducción y ubicación del ganado.</p>
+        </div>
+        <div class="card visual-card">
+          <div class="card-icono">📱</div>
+          <h3>Mercado meta</h3>
+          <p>Pequeños, medianos y grandes productores ganaderos interesados en modernizar la administración de sus fincas mediante tecnología.</p>
+        </div>
+        <div class="card visual-card">
+          <div class="card-icono">🤝</div>
+          <h3>Aliados estratégicos</h3>
+          <p>Asociaciones ganaderas, veterinarios y cooperativas que buscan mejorar la productividad y el control sanitario del sector.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="idea" class="seccion-visual idea-section">
+    <div class="contenedor">
+      <h2>Idea de negocio</h2>
+
+      <div class="idea-layout">
+        <div class="idea-destacada">
+          <img src="logo.jpeg" alt="Logo VELKA" class="idea-logo">
+        </div>
+
+        <div class="idea-info">
+          <div class="mini-card">
+            <div class="icono">🌱</div>
+            <div>
+              <h4>Logo</h4>
+              <p>Logo basado en tecnología agropecuaria moderna con colores verde musgo y elementos relacionados con ganado y GPS.</p>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="icono">📍</div>
+            <div>
+              <h4>Propuesta</h4>
+              <p>AgroTag combina aretes electrónicos con chip y códigos QR vinculados a una aplicación móvil que permite acceder rápidamente al historial completo de cada animal, incluyendo ubicación GPS, vacunas, enfermedades y reproducción.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oportunidad" class="oportunidad">
+    <div class="contenedor">
+      <h2>Oportunidad de mercado</h2>
+
+      <div class="oportunidad-grid">
+        <div class="oportunidad-principal">
+          <span class="etiqueta">Brecha tecnológica</span>
+          <h3>Una oportunidad real para digitalizar la ganadería</h3>
+          <p>
+            Existe una clara brecha tecnológica en el sector ganadero, ya que muchos productores continúan utilizando registros manuales. La digitalización del agro y el crecimiento del uso de smartphones en zonas rurales crean una gran oportunidad de mercado para esta propuesta.
+          </p>
+        </div>
+
+        <div class="oportunidad-lateral">
+          <div class="mini-card">
+            <div class="icono">!</div>
+            <div>
+              <h4>Problema</h4>
+              <p>Pérdida de información, errores humanos y dificultad para rastrear el ganado.</p>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="icono">✓</div>
+            <div>
+              <h4>Mercado</h4>
+              <p>Productores ganaderos que desean modernizar el control y monitoreo de sus animales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="propuesta" class="seccion-visual propuesta-section">
+    <div class="contenedor">
+      <h2>Solución y propuesta de valor</h2>
+
+      <div class="propuesta-layout">
+        <div class="propuesta-central">
+          <span class="etiqueta">Producto principal</span>
+          <h3>AgroTag</h3>
+          <p>
+            Una aplicación móvil integrada con aretes inteligentes que permite identificar y monitorear cada animal en tiempo real desde el celular.
+          </p>
+        </div>
+
+        <div class="propuesta-puntos">
+          <div class="punto-valor">Acceso inmediato al historial del animal mediante QR.</div>
+          <div class="punto-valor">Monitoreo GPS y geolocalización.</div>
+          <div class="punto-valor">Control sanitario y reproductivo digital.</div>
+          <div class="punto-valor">Reducción de pérdidas y errores humanos.</div>
+        </div>
+      </div>
+
+      <div class="diferenciacion">
+        <h3>Diferenciación</h3>
+        <p>
+          AgroTag se diferencia por ser un producto accesible, fácil de usar desde el celular y enfocado específicamente en las necesidades reales de los productores ganaderos costarricenses. VELKA lo desarrolla como una solución adaptada al contexto local.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ingresos" class="modelo seccion-visual">
+    <div class="contenedor">
+      <h2>Modelo de generación de ingresos</h2>
+
+      <div class="ingresos-layout">
+        <div class="ingreso-card grande">
+          <span class="etiqueta">Canales</span>
+          <h3>Puntos de venta</h3>
+          <p>
+            AgroTag podrá obtenerse mediante redes sociales, contacto directo por WhatsApp, correo electrónico y puntos de venta en San Carlos, Guanacaste y Pérez Zeledón.
+          </p>
+        </div>
+
+        <div class="ingreso-card">
+          <div class="card-icono">💳</div>
+          <h3>Ingresos</h3>
+          <p>
+            Los ingresos se generarán mediante la venta de aretes inteligentes, suscripciones de la aplicación móvil y servicios adicionales como instalación asistida y soporte técnico.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" class="seccion-visual social-section">
+    <div class="contenedor">
+      <h2>Responsabilidad social</h2>
+
+      <div class="bloque-visual bloque-social">
+        <div class="bloque-numero">✓</div>
+        <div class="bloque-contenido">
+          <span class="etiqueta">Impacto positivo</span>
+          <h3>Tecnología para una ganadería más organizada</h3>
+          <p>
+            VELKA busca modernizar el sector agropecuario mediante AgroTag y tecnología accesible, ayudando a reducir pérdidas, mejorar el bienestar animal y optimizar la toma de decisiones productivas basadas en datos en tiempo real.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipo" class="equipo">
+    <div class="contenedor">
+      <h2>Emprendedores</h2>
+      <p>Equipo creador de VELKA y del producto AgroTag.</p>
+
+      <div class="carrusel">
+        <button class="carrusel-btn" onclick="moverCarrusel(-1)">&#10094;</button>
+
+        <div class="carrusel-contenedor">
+          <div class="integrante activo">
+            <div class="foto">
+              <img src="Nossara.jpeg" alt="Brittany Nossara Rodríguez Rojas" class="foto-img">
+            </div>
+            <h3>Brittany Nossara Rodríguez Rojas</h3>
+            <p>Gerente General</p>
+          </div>
+
+          <div class="integrante activo">
+            <div class="foto">
+              <img src="sianny.jpeg" alt="Siany Lisset Sánchez Rojas" class="foto-img">
+            </div>
+            <h3>Siany Lisset Sánchez Rojas</h3>
+            <p>Gerente de Recursos Humanos</p>
+          </div>
+
+          <div class="integrante activo">
+            <div class="foto">
+              <img src="Sebastian.jpeg" alt="Sebastián Martínez Arguedas" class="foto-img">
+            </div>
+            <h3>Sebastián Martínez Arguedas</h3>
+            <p>Gerente de Marketing</p>
+          </div>
+
+          <div class="integrante">
+            <div class="foto">
+              <img src="Marta.jpeg" alt="Marta Elena Cubero Gutiérrez" class="foto-img">
+            </div>
+            <h3>Marta Elena Cubero Gutiérrez</h3>
+            <p>Gerente de Logística</p>
+          </div>
+
+          <div class="integrante">
+            <div class="foto">
+              <img src="Jakob.jpeg" alt="Jakob Sevilla" class="foto-img">
+            </div>
+            <h3>Jakob Sevilla</h3>
+            <p>Gerente de Innovación Tecnológica</p>
+          </div>
+        </div>
+
+        <button class="carrusel-btn" onclick="moverCarrusel(1)">&#10095;</button>
+      </div>
+
+      <div class="indicadores">
+        <span class="punto activo" onclick="mostrarGrupo(0)"></span>
+        <span class="punto" onclick="mostrarGrupo(1)"></span>
+        <span class="punto" onclick="mostrarGrupo(2)"></span>
+        <span class="punto" onclick="mostrarGrupo(3)"></span>
+        <span class="punto" onclick="mostrarGrupo(4)"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Universidad de Costa Rica</strong></p>
+    <p><strong></strong> Sede Occidente</p>
+    <p><strong>Profesor:</strong> Keren Sánchez Chaves</p>
+    <p><strong>Correo de la persona coordinadora:</strong> agrotagvekta@gmail.com</p>
+    <p>© 2025 VELKA. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    let indiceActual = 0;
+    const integrantes = document.querySelectorAll('.integrante');
+    const puntos = document.querySelectorAll('.punto');
+    const cantidadVisible = 3;
+
+    function mostrarGrupo(indice) {
+      integrantes.forEach(integrante => integrante.classList.remove('activo'));
+      puntos.forEach(punto => punto.classList.remove('activo'));
+
+      indiceActual = indice;
+
+      for (let i = 0; i < cantidadVisible; i++) {
+        const posicion = (indiceActual + i) % integrantes.length;
+        integrantes[posicion].classList.add('activo');
+      }
+
+      puntos[indiceActual].classList.add('activo');
+    }
+
+    function moverCarrusel(direccion) {
+      let nuevoIndice = indiceActual + direccion;
+
+      if (nuevoIndice < 0) {
+        nuevoIndice = integrantes.length - 1;
+      }
+
+      if (nuevoIndice >= integrantes.length) {
+        nuevoIndice = 0;
+      }
+
+      mostrarGrupo(nuevoIndice);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
